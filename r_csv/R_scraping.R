@@ -10,7 +10,4 @@ global_pop <- wiki_pop %>%
   html_nodes(xpath = '//*[@id="mw-content-text"]/div[1]/table[2]') %>%
   html_table()
 
-r_csv <- data.frame(global_pop) # save as dataframe
-r_csv[r_csv==""]<-NA # fill in empty space with NA
-r_csv
-write.table(r_csv, file = "R_output.csv", sep = ",", row.names = F)
+write.csv(global_pop, file = "R_output.csv", row.names = F)
